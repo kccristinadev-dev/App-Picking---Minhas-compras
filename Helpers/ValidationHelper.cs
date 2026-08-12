@@ -1,3 +1,6 @@
+using  SQLite;
+
+
 namespace AppPickingMinhasCompras.Helpers;
 
 public static class ValidationHelper
