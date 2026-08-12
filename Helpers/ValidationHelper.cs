@@ -1,5 +1,5 @@
 using  SQLite;
-
+using  Produtos.Models;
 
 namespace AppPickingMinhasCompras.Helpers;
 
