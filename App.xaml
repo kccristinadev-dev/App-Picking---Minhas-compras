@@ -1,0 +1,66 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+<Application
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppPickingMinhasCompras.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Cores Principais -->
+            <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="PrimaryColor">#512BD4</Color>
+            <Color x:Key="SecondaryColor">#DFD8F7</Color>
+            <Color x:Key="TertiaryColor">#F3F3F3</Color>
+            
+            <!-- Cores de Status -->
+            <Color x:Key="SuccessColor">#28A745</Color>
+            <Color x:Key="WarningColor">#FFC107</Color>
+            <Color x:Key="ErrorColor">#DC3545</Color>
+            <Color x:Key="InfoColor">#17A2B8</Color>
+            
+            <!-- Cores de Texto -->
+            <Color x:Key="TextPrimaryColor">#333333</Color>
+            <Color x:Key="TextSecondaryColor">#666666</Color>
+            <Color x:Key="TextTertiaryColor">#999999</Color>
+            
+            <!-- Estilos -->
+            <Style TargetType="Page" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{StaticResource PageBackgroundColor}" />
+            </Style>
+            
+            <Style TargetType="Button" x:Key="PrimaryButtonStyle">
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Padding" Value="15,10" />
+            </Style>
+            
+            <Style TargetType="Button" x:Key="SecondaryButtonStyle">
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryColor}" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Padding" Value="15,10" />
+            </Style>
+            
+            <Style TargetType="Label" x:Key="HeadingLabelStyle">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+            </Style>
+            
+            <Style TargetType="Label" x:Key="SubheadingLabelStyle">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+            </Style>
+            
+            <Style TargetType="Entry" x:Key="StandardEntryStyle">
+                <Setter Property="BackgroundColor" Value="{StaticResource TertiaryColor}" />
+                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="CornerRadius" Value="8" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

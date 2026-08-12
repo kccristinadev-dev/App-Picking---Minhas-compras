@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppPickingMinhasCompras.Views.ProdutosPage"
+             Title="Produtos">
+
+    <Grid RowDefinitions="Auto,*,Auto" Padding="10">
+        
+        <!-- Formulário -->
+        <VerticalStackLayout Grid.Row="0" Spacing="10" Padding="10">
+            <Label Text="Cadastrar Produto" FontAttributes="Bold" FontSize="18"/>
+            
+            <Entry x:Name="NomeProdutoEntry" 
+                   Placeholder="Nome do Produto"
+                   Text="{Binding NomeProduto}"/>
+            
+            <Entry x:Name="DescricaoProdutoEntry" 
+                   Placeholder="Descrição"
+                   Text="{Binding DescricaoProduto}"/>
+            
+            <Entry x:Name="PrecoProdutoEntry" 
+                   Placeholder="Preço"
+                   Keyboard="Numeric"
+                   Text="{Binding PrecoProduto}"/>
+            
+            <Entry x:Name="QuantidadeEntry" 
+                   Placeholder="Quantidade"
+                   Keyboard="Numeric"
+                   Text="{Binding QuantidadeProduto}"/>
+            
+            <Button Text="Salvar Produto"
+                    Command="{Binding SalvarProdutoCommand}"
+                    BackgroundColor="#512BD4"/>
+        </VerticalStackLayout>
+
+        <!-- Lista de Produtos -->
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Produtos}" Margin="10">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,Auto" Padding="10" RowSpacing="5">
+                        <VerticalStackLayout Grid.Column="0">
+                            <Label Text="{Binding Nome}" FontAttributes="Bold" FontSize="16"/>
+                            <Label Text="{Binding Descricao}" FontSize="14" Opacity="0.7"/>
+                            <Label Text="{Binding Preco, StringFormat='R$ {0:F2}'}" FontSize="14" FontAttributes="Bold"/>
+                            <Label Text="{Binding Quantidade, StringFormat='Qtd: {0}'}" FontSize="12"/>
+                        </VerticalStackLayout>
+                        <Button Grid.Column="1" 
+                                Text="Deletar"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteProdutoCommand}"
+                                CommandParameter="{Binding .}"
+                                BackgroundColor="#FF0000"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Loading Indicator -->
+        <ActivityIndicator Grid.Row="1" 
+                          IsRunning="{Binding IsLoading}"
+                          IsVisible="{Binding IsLoading}"
+                          Color="#512BD4"/>
+    </Grid>
+
+</ContentPage>

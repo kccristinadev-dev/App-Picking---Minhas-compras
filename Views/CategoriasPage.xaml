@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppPickingMinhasCompras.Views.CategoriasPage"
+             Title="Categorias">
+
+    <Grid RowDefinitions="Auto,*,Auto" Padding="10">
+        
+        <!-- Formulário -->
+        <VerticalStackLayout Grid.Row="0" Spacing="10" Padding="10">
+            <Label Text="Cadastrar Categoria" FontAttributes="Bold" FontSize="18"/>
+            
+            <Entry x:Name="NomeCategoriaEntry" 
+                   Placeholder="Nome da Categoria"
+                   Text="{Binding NomeCategorias}"/>
+            
+            <Entry x:Name="DescricaoCategoriaEntry" 
+                   Placeholder="Descrição"
+                   Text="{Binding DescricaoCategoria}"/>
+            
+            <Button Text="Salvar Categoria"
+                    Command="{Binding SalvarCategoriaCommand}"
+                    BackgroundColor="#512BD4"/>
+        </VerticalStackLayout>
+
+        <!-- Lista de Categorias -->
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Categorias}" Margin="10">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,Auto" Padding="10" RowSpacing="5">
+                        <VerticalStackLayout Grid.Column="0">
+                            <Label Text="{Binding Nome}" FontAttributes="Bold" FontSize="16"/>
+                            <Label Text="{Binding Descricao}" FontSize="14" Opacity="0.7"/>
+                        </VerticalStackLayout>
+                        <Button Grid.Column="1" 
+                                Text="Deletar"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteCategoriaCommand}"
+                                CommandParameter="{Binding .}"
+                                BackgroundColor="#FF0000"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Loading Indicator -->
+        <ActivityIndicator Grid.Row="1" 
+                          IsRunning="{Binding IsLoading}"
+                          IsVisible="{Binding IsLoading}"
+                          Color="#512BD4"/>
+    </Grid>
+
+</ContentPage>
