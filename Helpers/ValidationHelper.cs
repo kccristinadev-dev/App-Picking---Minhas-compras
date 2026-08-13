@@ -5,7 +5,7 @@ namespace AppPickingMinhasCompras.Helpers;
 
 public class SQLiteDataBaseHelpers{
    
-  readonly SQLiteAsyncConnection _connection;
+  readonly SQLiteAsyncConnection _conn;
 
 public SQLiteDataBaseHelpers(string pach) {
 _conn = new SQLiteAsyncConnecton(pach);
