@@ -9,9 +9,11 @@ public class SQLiteDataBaseHelpers{
 
 public SQLiteDataBaseHelpers(string pach) {
 _conn = new SQLiteAsyncConnecton(pach);
-_conn CreateTableAsync<Produto>().waint();
+_conn.CreateTableAsync<Produto>().waint();
 }
 public Task<int> Insert(Produto p){
+
+return _conn.InsertAsync(p);
 
 }
 
@@ -24,6 +26,6 @@ public void Delete(int ID){
 }
 public void pegarP(){}
 
-public void buscasP(){}
+public void buscasP(string q){}
 
 }
