@@ -39,7 +39,9 @@ public Task<List<Produto>> pegarP(){
 
 public Task<List<Produto>> buscasP(string q){
 
+string sql = "SELECT Produto SET Descricao=?, Quantidade=?, Preco=? WHERE Id=?";
 
+return _conn.QueryAsync<Produto>(sql);
 }
 
 }
