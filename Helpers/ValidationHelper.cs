@@ -9,7 +9,7 @@ public class SQLiteDataBaseHelpers{
 
 public SQLiteDataBaseHelpers(string pach) {
 _conn = new SQLiteAsyncConnecton(pach);
-_conn.CreateTableAsync<Produto>().waint();
+_conn.CreateTableAsync<Produto>().Waint();
 }
 public Task<int> Insert(Produto p){
 
