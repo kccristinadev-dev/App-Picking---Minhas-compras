@@ -39,7 +39,7 @@ public Task<List<Produto>> pegarP(){
 
 public Task<List<Produto>> buscasP(string q){
 
-string sql = "SELECT * Produto WHERE Descricao LIKE ";
+string sql = "SELECT * Produto WHERE Descricao LIKE "%" + q + "%"";
 
 return _conn.QueryAsync<Produto>(sql);
 }
