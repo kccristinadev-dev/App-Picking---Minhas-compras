@@ -17,17 +17,29 @@ return _conn.InsertAsync(p);
 
 }
 
-public void Update(Produto p){
+public Task<Lista<Produto>> Update(Produto p){
 
 string sql = "UPDATE Produto SET Descricao=?, Quantidade=?, Preco=? WHERE Id=?";
-return _conn.QueryAsync<Produto>(sql);
+return _conn.QueryAsync<Produto>(
+
+sql, p.Descricao, p.Quantidade, p.Preco, p.Id
+);
 }
 
-public void Delete(int ID){
+public Task<int> Delete(int ID){
+
+return _conn.Table<Produto>().DeleteAsync(i => i.Id == id);
 
 }
-public void pegarP(){}
+public Task<List<Produto>> pegarP(){
 
-public void buscasP(string q){}
+ return _conn.Table<Produto>().ToListAsync().Waint ();
+
+}
+
+public Task<List<Produto>> buscasP(string q){
+
+
+}
 
 }
