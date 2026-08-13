@@ -2,7 +2,7 @@ using SQLite;
 
 namespace AppPickingMinhasCompras.Models;
 
-[Table("Produtos")]
+[Table("Produto")]
 public class Produto
 {
     [PrimaryKey, AutoIncrement]
