@@ -1,6 +1,7 @@
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using AppPickingMinhasCompras.Services;
+using AppPickingMinhasCompras.Helpers;
 using AppPickingMinhasCompras.Views;
 using AppPickingMinhasCompras.ViewModels;
 
@@ -19,8 +20,8 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		// Register Database Service
-		builder.Services.AddSingleton<IDbService, DbService>();
+		// Register Database Service - SQLiteDataBaseHelpers implementa IDbService
+		builder.Services.AddSingleton<IDbService, SQLiteDataBaseHelpers>();
 		
 		// Register Pages
 		builder.Services.AddSingleton<App>();
