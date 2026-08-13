@@ -11,7 +11,7 @@ public SQLiteDataBaseHelpers(string pach) {
 _conn = new SQLiteAsyncConnecton(pach);
 _conn CreateTableAsync<Produto>().waint();
 }
-public void Insert(Produto p){
+public Task<int> Insert(Produto p){
 
 }
 
@@ -19,7 +19,11 @@ public void Update(Produto p){
 
 }
 
-public void Delete(Produto p){
+public void Delete(int ID){
 
 }
+public void pegarP(){}
+
+public void buscasP(){}
+
 }
