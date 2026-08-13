@@ -4,47 +4,52 @@ using AppPickingMinhasCompras.Constants;
 using AppPickingMinhasCompras.Services;
 
 
+
 namespace AppPickingMinhasCompras.Helpers;
 
-public class SQLiteDataBaseHelpers{
+public class SQLiteDataBaseHelpers
+{
+    private readonly SQLiteAsyncConnection _conn;
 
-private readonly SQLiteAsyncConnection _conn;
+    public SQLiteDataBaseHelpers(string path)
+    {
+        _conn = new SQLiteAsyncConnection(path);
+        _conn.CreateTableAsync<Produto>().Wait();
+    }
 
-public SQLiteDataBaseHelpers(string pach) {
-_conn = new SQLiteAsyncConnection(pach);
-_conn.CreateTableAsync<Produto>().Waint();
-}
-public Task<int> Insert(Produto p){
+    public Task<int> Insert(Produto p)
+    {
+        return _conn.InsertAsync(p);
+    }
 
-return _conn.InsertAsync(p);
+    public Task<int> Update(Produto p)
+    {
+        string sql = "UPDATE Produto SET Descricao=?, Quantidade=?, Preco=? WHERE Id=?";
 
-}
+        return _conn.ExecuteAsync(
+            sql,
+            p.Descricao,
+            p.Quantidade,
+            p.Preco,
+            p.Id
+        );
+    }
 
-public Task<List<Produto>> Update(Produto p){
+    public Task<int> Delete(int id)
+    {
+        return _conn.Table<Produto>()
+                    .DeleteAsync(i => i.Id == id);
+    }
 
-string sql = "UPDATE Produto SET Descricao=?, Quantidade=?, Preco=? WHERE Id=?";
-return _conn.QueryAsync<Produto>(
+    public Task<List<Produto>> PegarP()
+    {
+        return _conn.Table<Produto>().ToListAsync();
+    }
 
-sql, p.Descricao, p.Quantidade, p.Preco, p.Id
-);
-}
+    public Task<List<Produto>> BuscasP(string q)
+    {
+        string sql = "SELECT * FROM Produto WHERE Descricao LIKE ?";
 
-public Task<int> Delete(int ID){
-
-return _conn.Table<Produto>().DeleteAsync(i => i.Id == id);
-
-}
-public Task<List<Produto>> pegarP(){
-
-return _conn.Table<Produto>().ToListAsync();
-
-}
-
-public Task<List<Produto>> buscasP(string q){
-
-string sql = "SELECT * FROM Produto WHERE Descricao LIKE '%" + q + "%'";
-
-return _conn.QueryAsync<Produto>(sql);
-}
-
+        return _conn.QueryAsync<Produto>(sql, $"%{q}%");
+    }
 }
