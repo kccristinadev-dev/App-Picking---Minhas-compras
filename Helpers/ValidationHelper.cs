@@ -19,6 +19,8 @@ return _conn.InsertAsync(p);
 
 public void Update(Produto p){
 
+string sql = "UPDATE Produto SET Descricao=?, Quantidade=?, Preco=? WHERE Id=?";
+return _conn.QueryAsync<Produto>(sql);
 }
 
 public void Delete(int ID){
