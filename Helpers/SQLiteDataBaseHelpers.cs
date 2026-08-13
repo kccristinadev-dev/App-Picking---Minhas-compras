@@ -1,5 +1,6 @@
 using SQLite;
 using Produtos.Models;
+using AppPickingMinhasCompras.Models;
 using AppPickingMinhasCompras.Constants;
 
 namespace AppPickingMinhasCompras.Helpers;
