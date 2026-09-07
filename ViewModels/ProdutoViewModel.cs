@@ -46,7 +46,7 @@ private string textoBusca = string.Empty;
             IsLoading = true;
             Produtos = await _dbService.GetProdutosAsync();
 
-ProdutosFiltrados = produtos;
+produtosFiltrados = produtos;
         }
         catch (Exception ex)
         {
