@@ -93,6 +93,20 @@ produtosFiltrados = produtos;
             await Application.Current!.MainPage!.DisplayAlert("Erro", $"Erro ao salvar produto: {ex.Message}", "OK");
         }
     }
+partial void OnTextoBuscaChanged(string value)
+{
+    if (string.IsNullOrWhiteSpace(value))
+    {
+        ProdutosFiltrados = Produtos;
+        return;
+    }
+
+    ProdutosFiltrados = Produtos
+        .Where(p => p.Nome.Contains(
+            value,
+            StringComparison.OrdinalIgnoreCase))
+        .ToList();
+}
 
     [RelayCommand]
     public async Task DeleteProduto(Produto produto)
