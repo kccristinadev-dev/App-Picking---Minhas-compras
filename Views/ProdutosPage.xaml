@@ -34,7 +34,13 @@
         </VerticalStackLayout>
 
         <!-- Lista de Produtos -->
-        <CollectionView Grid.Row="1" ItemsSource="{Binding Produtos}" Margin="10">
+      <SearchBar
+    Grid.Row="1"
+    Placeholder="Buscar produto..."
+    Text="{Binding TextoBusca}" />
+
+<CollectionView Grid.Row="2"
+                ItemsSource="{Binding ProdutosFiltrados}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid ColumnDefinitions="*,Auto" Padding="10" RowSpacing="5">
