@@ -12,6 +12,12 @@ public partial class ProdutoViewModel : ObservableObject
     [ObservableProperty]
     private List<Produto> produtos = new();
 
+[ObservableProperty]
+private List<Produto> produtosFiltrados = new();
+
+[ObservableProperty]
+private string textoBusca = string.Empty;
+
     [ObservableProperty]
     private bool isLoading = false;
 
