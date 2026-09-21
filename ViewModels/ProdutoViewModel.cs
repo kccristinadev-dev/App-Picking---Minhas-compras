@@ -112,7 +112,7 @@ CategoriaId = CategoriaSelecionada.Id
             DescricaoProduto = string.Empty;
             PrecoProduto = 0;
             QuantidadeProduto = 1;
-
+CategoriaSelecionada = null;
             await LoadProdutos();
         }
         catch (Exception ex)
