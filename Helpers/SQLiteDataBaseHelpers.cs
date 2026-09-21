@@ -22,18 +22,19 @@ public class SQLiteDataBaseHelpers
         return _conn.InsertAsync(p);
     }
 
-    public Task<int> Update(Produto p)
-    {
-        string sql = "UPDATE Produto SET Descricao=?, Quantidade=?, Preco=? WHERE Id=?";
+  public Task<int> Update(Produto p)
+{
+    string sql = "UPDATE Produto SET Descricao=?, Quantidade=?, Preco=?, CategoriaId=? WHERE Id=?";
 
-        return _conn.ExecuteAsync(
-            sql,
-            p.Descricao,
-            p.Quantidade,
-            p.Preco,
-            p.Id
-        );
-    }
+    return _conn.ExecuteAsync(
+        sql,
+        p.Descricao,
+        p.Quantidade,
+        p.Preco,
+        p.CategoriaId,
+        p.Id
+    );
+}
 
     public Task<int> Delete(int id)
     {
