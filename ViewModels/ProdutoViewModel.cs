@@ -121,19 +121,35 @@ CategoriaSelecionada = null;
             await Application.Current!.MainPage!.DisplayAlert("Erro", $"Erro ao salvar produto: {ex.Message}", "OK");
         }
     }
-partial void OnTextoBuscaChanged(string value)
+private void AplicarFiltros()
 {
-    if (string.IsNullOrWhiteSpace(value))
+    IEnumerable<Produto> resultado = Produtos;
+
+    if (!string.IsNullOrWhiteSpace(TextoBusca))
     {
-        ProdutosFiltrados = Produtos;
-        return;
+        resultado = resultado.Where(p =>
+            p.Nome.Contains(
+                TextoBusca,
+                StringComparison.OrdinalIgnoreCase));
     }
 
-    ProdutosFiltrados = Produtos
-        .Where(p => p.Nome.Contains(
-            value,
-            StringComparison.OrdinalIgnoreCase))
-        .ToList();
+    if (CategoriaFiltroSelecionada != null)
+    {
+        resultado = resultado.Where(p =>
+            p.CategoriaId == CategoriaFiltroSelecionada.Id);
+    }
+
+    ProdutosFiltrados = resultado.ToList();
+}
+
+partial void OnTextoBuscaChanged(string value)
+{
+    AplicarFiltros();
+}
+
+partial void OnCategoriaFiltroSelecionadaChanged(Categoria? value)
+{
+    AplicarFiltros();
 }
 
     [RelayCommand]
