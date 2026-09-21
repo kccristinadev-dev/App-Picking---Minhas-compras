@@ -76,6 +76,27 @@ foreach (var categoria in categorias)
         }
     }
 
+private async Task GerarRelatorio()
+{
+    var produtos = await _dbService.GetProdutosAsync();
+    var categorias = await _dbService.GetCategoriasAsync();
+
+    RelatorioCategorias.Clear();
+
+    foreach (var categoria in categorias)
+    {
+        var total = produtos
+            .Where(p => p.CategoriaId == categoria.Id)
+            .Sum(p => p.Preco * p.Quantidade);
+
+        RelatorioCategorias.Add(new RelatorioCategoria
+        {
+            NomeCategoria = categoria.Nome,
+            TotalGasto = total
+        });
+    }
+}
+
     [RelayCommand]
     public async Task SalvarProduto()
     {
