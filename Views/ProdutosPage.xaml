@@ -111,6 +111,38 @@
                            IsVisible="{Binding IsLoading}"
                            Color="#512BD4"/>
 
+<VerticalStackLayout Grid.Row="4"
+                     Spacing="5"
+                     Padding="10">
+
+    <Label Text="Relatório por categoria"
+           FontAttributes="Bold"
+           FontSize="18"/>
+
+    <VerticalStackLayout BindableLayout.ItemsSource="{Binding RelatorioCategorias}">
+
+        <BindableLayout.ItemTemplate>
+            <DataTemplate>
+
+                <Grid ColumnDefinitions="*,Auto"
+                      Padding="5">
+
+                    <Label Text="{Binding NomeCategoria}"
+                           FontSize="14"/>
+
+                    <Label Grid.Column="1"
+                           Text="{Binding TotalGasto, StringFormat='R$ {0:F2}'}"
+                           FontAttributes="Bold"
+                           FontSize="14"/>
+
+                </Grid>
+
+            </DataTemplate>
+        </BindableLayout.ItemTemplate>
+
+    </VerticalStackLayout>
+
+</VerticalStackLayout>
     </Grid>
 
 </ContentPage>
