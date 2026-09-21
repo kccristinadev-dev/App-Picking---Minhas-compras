@@ -46,10 +46,7 @@
                     BackgroundColor="#512BD4"/>
         </VerticalStackLayout>
 
-
-    <Grid RowDefinitions="Auto,Auto,Auto,*,Auto"
-      Padding="10">
-  <Grid RowDefinitions="Auto,Auto,Auto,*,Auto"
+<Grid RowDefinitions="Auto,Auto,Auto,*,Auto"
       Padding="10">
 <SearchBar Grid.Row="1"
            Placeholder="Buscar produto..."
