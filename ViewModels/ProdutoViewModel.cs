@@ -41,8 +41,7 @@ private Categoria? categoriaSelecionada;
 private Categoria? categoriaFiltroSelecionada;
     [ObservableProperty]
     private int quantidadeProduto = 1;
-public ObservableCollection<Relatorio> Relatorio{ get; } = new();
-
+public ObservableCollection<RelatorioCategoria> RelatorioCategorias { get; } = new();
     public ProdutoViewModel()
     {
         _dbService = MauiProgram.CreateMauiApp().Services.GetRequiredService<IDbService>();
