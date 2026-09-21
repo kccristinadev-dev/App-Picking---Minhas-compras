@@ -12,7 +12,7 @@ public partial class ProdutoViewModel : ObservableObject
     [ObservableProperty]
     private List<Produto> produtos = new();
 
-public ObservableCollection<Categoria> Categorias { get; } = new();
+
 
 
 [ObservableProperty]
