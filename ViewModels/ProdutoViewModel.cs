@@ -63,6 +63,7 @@ Categorias.Clear();
 foreach (var categoria in categorias)
 {
     Categorias.Add(categoria);
+await GerarRelatorio();
 }
 
         }
