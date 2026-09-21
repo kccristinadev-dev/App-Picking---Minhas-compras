@@ -47,12 +47,21 @@
         </VerticalStackLayout>
 
 
-        <!-- Busca -->
-        <SearchBar Grid.Row="1"
-                   Placeholder="Buscar produto..."
-                   Text="{Binding TextoBusca}"
-                   Margin="10,0"/>
+    <Grid RowDefinitions="Auto,Auto,Auto,*,Auto"
+      Padding="10">
+  <Grid RowDefinitions="Auto,Auto,Auto,*,Auto"
+      Padding="10">
+<SearchBar Grid.Row="1"
+           Placeholder="Buscar produto..."
+           Text="{Binding TextoBusca}"
+           Margin="10,0"/>
 
+<Picker Grid.Row="2"
+        Title="Filtrar por categoria"
+        ItemsSource="{Binding Categorias}"
+        ItemDisplayBinding="{Binding Nome}"
+        SelectedItem="{Binding CategoriaFiltroSelecionada, Mode=TwoWay}"
+        Margin="10,0"/>
 
         <!-- Lista de Produtos -->
         <CollectionView Grid.Row="2"
