@@ -83,6 +83,15 @@ foreach (var categoria in categorias)
             await Application.Current!.MainPage!.DisplayAlert("Validação", "Nome do produto é obrigatório", "OK");
             return;
         }
+if (CategoriaSelecionada == null)
+{
+    await Application.Current!.MainPage!.DisplayAlert(
+        "Validação",
+        "Selecione uma categoria",
+        "OK");
+
+    return;
+}
 
         try
         {
@@ -92,6 +101,7 @@ foreach (var categoria in categorias)
                 Descricao = DescricaoProduto,
                 Preco = PrecoProduto,
                 Quantidade = QuantidadeProduto
+CategoriaId = CategoriaSelecionada.Id
             };
 
             await _dbService.SaveProdutoAsync(produto);
