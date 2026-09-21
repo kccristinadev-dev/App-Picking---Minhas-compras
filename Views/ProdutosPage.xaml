@@ -4,8 +4,8 @@
              x:Class="AppPickingMinhasCompras.Views.ProdutosPage"
              Title="Produtos">
 
-    <Grid RowDefinitions="Auto,Auto,*,Auto"
-          Padding="10">
+   <Grid RowDefinitions="Auto,Auto,Auto,*,Auto"
+      Padding="10">
 
         <!-- Formulário -->
         <VerticalStackLayout Grid.Row="0"
