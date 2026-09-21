@@ -13,16 +13,7 @@ public partial class ProdutoViewModel : ObservableObject
     private List<Produto> produtos = new();
 
 public ObservableCollection<Categoria> Categorias { get; } = new();
-var categorias = await _dbService.GetCategoriasAsync();
 
-Categorias.Clear();
-
-foreach (var categoria in categorias)
-{
-    Categorias.Add(categoria);
-}
-[ObservableProperty]
-private Categoria? categoriaSelecionada;
 
 [ObservableProperty]
 private List<Produto> produtosFiltrados = new();
@@ -42,6 +33,10 @@ private string textoBusca = string.Empty;
 
     [ObservableProperty]
     private decimal precoProduto = 0;
+public ObservableCollection<Categoria> Categorias { get; } = new();
+
+[ObservableProperty]
+private Categoria? categoriaSelecionada;
 
     [ObservableProperty]
     private int quantidadeProduto = 1;
@@ -60,6 +55,15 @@ private string textoBusca = string.Empty;
             Produtos = await _dbService.GetProdutosAsync();
 
 ProdutosFiltrados = Produtos;
+var categorias = await _dbService.GetCategoriasAsync();
+
+Categorias.Clear();
+
+foreach (var categoria in categorias)
+{
+    Categorias.Add(categoria);
+}
+
         }
         catch (Exception ex)
         {
