@@ -37,7 +37,8 @@ public ObservableCollection<Categoria> Categorias { get; } = new();
 
 [ObservableProperty]
 private Categoria? categoriaSelecionada;
-
+[ObservableProperty]
+private Categoria? categoriaFiltroSelecionada;
     [ObservableProperty]
     private int quantidadeProduto = 1;
 
