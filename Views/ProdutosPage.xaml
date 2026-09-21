@@ -59,7 +59,7 @@
         Margin="10,0"/>
 
         <!-- Lista de Produtos -->
-        <CollectionView Grid.Row="2"
+        <CollectionView Grid.Row="3"
                         ItemsSource="{Binding ProdutosFiltrados}"
                         Margin="10">
 
@@ -106,7 +106,7 @@
 
 
         <!-- Loading Indicator -->
-        <ActivityIndicator Grid.Row="2"
+        <ActivityIndicator Grid.Row="3"
                            IsRunning="{Binding IsLoading}"
                            IsVisible="{Binding IsLoading}"
                            Color="#512BD4"/>
