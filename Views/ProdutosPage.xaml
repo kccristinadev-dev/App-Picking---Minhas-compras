@@ -68,6 +68,13 @@
                             <Label Text="{Binding Descricao}"
                                    FontSize="14"
                                    Opacity="0.7"/>
+<Label Text="Categoria" />
+
+<Picker
+    Title="Selecione uma categoria"
+    ItemsSource="{Binding Categorias}"
+    ItemDisplayBinding="{Binding Nome}"
+    SelectedItem="{Binding CategoriaSelecionada, Mode=TwoWay}" />
 
                             <Label Text="{Binding Preco, StringFormat='R$ {0:F2}'}"
                                    FontSize="14"
