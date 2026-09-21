@@ -82,7 +82,8 @@
 
                             <Label Text="{Binding Quantidade, StringFormat='Qtd: {0}'}"
                                    FontSize="12"/>
-
+<Label Text="{Binding CategoriaId}"
+       FontSize="12"/>
                         </VerticalStackLayout>
 
 
