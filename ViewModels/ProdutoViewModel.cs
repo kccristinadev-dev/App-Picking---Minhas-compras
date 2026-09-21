@@ -41,6 +41,7 @@ private Categoria? categoriaSelecionada;
 private Categoria? categoriaFiltroSelecionada;
     [ObservableProperty]
     private int quantidadeProduto = 1;
+public ObservableCollection<Relatorio> Relatorio{ get; } = new();
 
     public ProdutoViewModel()
     {
