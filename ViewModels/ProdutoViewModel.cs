@@ -100,7 +100,7 @@ if (CategoriaSelecionada == null)
                 Nome = NomeProduto,
                 Descricao = DescricaoProduto,
                 Preco = PrecoProduto,
-                Quantidade = QuantidadeProduto
+                Quantidade = QuantidadeProduto,
 CategoriaId = CategoriaSelecionada.Id
             };
 
