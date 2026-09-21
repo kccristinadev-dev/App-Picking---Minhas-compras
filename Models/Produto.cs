@@ -19,6 +19,9 @@ public class Produto
 
     public int Quantidade { get; set; }
 
+[NotNull]
+public int CategoriaId { get; set; }
+
     [NotNull]
     public DateTime DataCriacao { get; set; } = DateTime.Now;
 
